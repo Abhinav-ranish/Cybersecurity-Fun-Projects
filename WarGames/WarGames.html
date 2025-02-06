@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarGames Simulation</title>
+    <style>
+        body {
+            background-color: black;
+            color: #33FF33;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #terminal {
+            width: 80%;
+            height: 70%;
+            background-color: black;
+            border: 2px solid #33FF33;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+
+        const messages = [
+            "Initializing simulation...",
+            "USA and USSR are on high alert.",
+            "Diplomatic channels open.",
+            "Missile silos activated.",
+            "Calculating first strike probabilities...",
+            "Nuclear launch detected!",
+            "Retaliation strike confirmed.",
+            "Mutually Assured Destruction imminent.",
+            "Simulation complete. No winners."
+        ];
+
+        let index = 0;
+
+        function displayMessage() {
+            if (index < messages.length) {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message';
+                messageElement.textContent = messages[index];
+                terminal.appendChild(messageElement);
+                terminal.scrollTop = terminal.scrollHeight;
+                index++;
+                setTimeout(displayMessage, 1500);
+            }
+        }
+
+        displayMessage();
+    </script>
+</body>
+</html>
